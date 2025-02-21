@@ -27,8 +27,9 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-slate-50 to-slate-100;
+    @apply bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800;
     min-height: 100vh;
+    background-attachment: fixed;
   }
 }
 
@@ -70,4 +71,19 @@
   margin: 0 auto;
   padding: 2rem;
   min-height: 100vh;
+}
+
+.glass-effect {
+  @apply bg-white/80 dark:bg-dark-card/80 backdrop-blur-lg;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

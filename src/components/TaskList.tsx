@@ -12,8 +12,10 @@ interface TaskListProps {
 const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusChange }) => {
   if (tasks.length === 0) {
     return (
-      <div className="text-center py-12 card">
-        <p className="text-gray-500 text-lg">No tasks found. Create a new task to get started!</p>
+      <div className="text-center py-12 dark:bg-dark-card rounded-lg">
+        <p className="text-gray-500 dark:text-dark-text text-lg">
+          No tasks found. Create a new task to get started!
+        </p>
       </div>
     );
   }
@@ -23,20 +25,22 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusCh
       {tasks.map((task) => (
         <div 
           key={task.id}
-          className="card p-5 animate-fade-in"
+          className="bg-white dark:bg-dark-card p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow animate-fade-in"
         >
           <div className="flex items-center justify-between gap-4">
-            <h3 className="text-lg font-semibold text-gray-800">{task.title}</h3>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-dark-heading">
+              {task.title}
+            </h3>
             <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-              task.priority === 'high' ? 'bg-red-100 text-red-800' :
-              task.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-              'bg-green-100 text-green-800'
+              task.priority === 'high' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
+              task.priority === 'medium' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
+              'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
             }`}>
               {task.priority}
             </span>
           </div>
           
-          <p className="mt-2 text-gray-600">{task.description}</p>
+          <p className="mt-2 text-gray-600 dark:text-dark-text">{task.description}</p>
           
           <div className="mt-4 flex items-center justify-between">
             <select

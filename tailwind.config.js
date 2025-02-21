@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -18,6 +19,14 @@ export default {
           700: 'rgb(var(--color-primary-700) / <alpha-value>)',
           800: 'rgb(var(--color-primary-800) / <alpha-value>)',
           900: 'rgb(var(--color-primary-900) / <alpha-value>)',
+        },
+        dark: {
+          bg: '#1a1b1e',
+          card: '#25262b',
+          hover: '#2c2e33',
+          border: '#2c2e33',
+          text: '#c1c2c5',
+          heading: '#ffffff'
         }
       }
     },

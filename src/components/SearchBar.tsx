@@ -12,11 +12,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange }) => {
         type="text"
         placeholder="Search tasks..."
         onChange={(e) => onSearch(e.target.value)}
-        className="flex-1 p-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="flex-1 p-2 border dark:border-dark-border dark:bg-dark-hover dark:text-dark-text rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
       <select
         onChange={(e) => onFilterChange(e.target.value)}
-        className="p-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="p-2 border dark:border-dark-border dark:bg-dark-hover dark:text-dark-text rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       >
         <option value="all">All Tasks</option>
         <option value="todo">To Do</option>

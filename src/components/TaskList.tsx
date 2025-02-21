@@ -12,8 +12,8 @@ interface TaskListProps {
 const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusChange }) => {
   if (tasks.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
-        No tasks found. Create a new task to get started!
+      <div className="text-center py-12 card">
+        <p className="text-gray-500 text-lg">No tasks found. Create a new task to get started!</p>
       </div>
     );
   }
@@ -23,11 +23,11 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusCh
       {tasks.map((task) => (
         <div 
           key={task.id}
-          className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow"
+          className="card p-5 animate-fade-in"
         >
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold">{task.title}</h3>
-            <span className={`px-2 py-1 rounded text-sm ${
+          <div className="flex items-center justify-between gap-4">
+            <h3 className="text-lg font-semibold text-gray-800">{task.title}</h3>
+            <span className={`px-3 py-1 rounded-full text-sm font-medium ${
               task.priority === 'high' ? 'bg-red-100 text-red-800' :
               task.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
               'bg-green-100 text-green-800'
@@ -42,7 +42,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusCh
             <select
               value={task.status}
               onChange={(e) => onStatusChange(task.id, e.target.value as Task['status'])}
-              className="p-1 border rounded"
+              className="input py-1 px-2"
             >
               <option value="todo">To Do</option>
               <option value="in-progress">In Progress</option>
@@ -52,13 +52,15 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusCh
             <div className="space-x-2">
               <button
                 onClick={() => onEdit(task)}
-                className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"
+                className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
+                title="Edit task"
               >
                 <PencilIcon className="h-5 w-5" />
               </button>
               <button
                 onClick={() => onDelete(task.id)}
-                className="p-2 text-red-600 hover:bg-red-50 rounded-full"
+                className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors"
+                title="Delete task"
               >
                 <TrashIcon className="h-5 w-5" />
               </button>

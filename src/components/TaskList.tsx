@@ -1,4 +1,5 @@
 import React from 'react';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Task } from '../types/task';
 
 interface TaskListProps {
@@ -9,6 +10,14 @@ interface TaskListProps {
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusChange }) => {
+  if (tasks.length === 0) {
+    return (
+      <div className="text-center py-8 text-gray-500">
+        No tasks found. Create a new task to get started!
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-4">
       {tasks.map((task) => (
@@ -43,15 +52,15 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onDelete, onEdit, onStatusCh
             <div className="space-x-2">
               <button
                 onClick={() => onEdit(task)}
-                className="px-3 py-1 text-blue-600 border border-blue-600 rounded hover:bg-blue-50"
+                className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"
               >
-                Edit
+                <PencilIcon className="h-5 w-5" />
               </button>
               <button
                 onClick={() => onDelete(task.id)}
-                className="px-3 py-1 text-red-600 border border-red-600 rounded hover:bg-red-50"
+                className="p-2 text-red-600 hover:bg-red-50 rounded-full"
               >
-                Delete
+                <TrashIcon className="h-5 w-5" />
               </button>
             </div>
           </div>

@@ -8,3 +8,12 @@ export interface Task {
   createdAt: Date;
   dueDate?: Date;
 }
+
+export interface TaskFormData {
+  title: string;
+  description: string;
+  priority: 'low' | 'medium' | 'high';
+  status?: 'todo' | 'in-progress' | 'completed';
+  tags?: string | string[];
+  dueDate?: Date;
+}

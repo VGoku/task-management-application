@@ -9,7 +9,6 @@ import { useTaskStore } from './lib/store';
 import { Task, TaskFormData } from './types/task';
 import ThemeToggle from './components/ThemeToggle';
 import TaskMetrics from './components/TaskMetrics';
-import TaskTags from './components/TaskTags';
 import TaskProgress from './components/TaskProgress';
 import TaskDeadlines from './components/TaskDeadlines';
 
